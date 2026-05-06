@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phước Dev Portfolio</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand">Phước Dev</a>
+    <div>
+      <a href="#" onclick="showPage('home')">Trang chủ</a>
+      <a href="#" onclick="showPage('profile')">Hồ sơ</a>
+      <a href="#" onclick="showPage('projects')">Dự án</a>
+      <a href="#" onclick="showPage('contact')">Liên hệ</a>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+
+<div class="container content">
+
+  <!-- HOME -->
+
+  <div id="home" class="page">
+    <div class="hero">
+      <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6">
+      <h2 id="userName">Phạm Trường Phước</h2>
+      <p>Web Developer 🚀</p>
+      <button class="btn btn-light" onclick="showPage('projects')">Xem dự án</button>
+    </div>
+  </div>
+
+  <!-- PROFILE -->
+
+  <div id="profile" class="page d-none">
+    <div class="card-custom p-4 text-center">
+      <h3 id="profileName">Phạm Trường Phước</h3>
+      <p>Sinh viên IT - TVU</p>
+
+```
+  <h5>Kỹ năng</h5>
+  <span class="skill">HTML</span>
+  <span class="skill">CSS</span>
+  <span class="skill">JavaScript</span>
+  <span class="skill">C++</span>
+</div>
+```
+
+  </div>
+
+  <!-- PROJECTS -->
+
+  <div id="projects" class="page d-none">
+    <h3>Dự án</h3>
+    <div class="row">
+
+```
+  <div class="col-md-6">
+    <div class="card-custom p-3">
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c" class="img-fluid">
+      <h5>Website quản lý học tập</h5>
+      <p>PHP + MySQL</p>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card-custom p-3">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" class="img-fluid">
+      <h5>Ứng dụng giải toán</h5>
+      <p>C++ Algorithm</p>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- CONTACT -->
+
+  <div id="contact" class="page d-none">
+    <div class="card-custom p-4">
+      <h4>Liên hệ</h4>
+
+```
+  <input id="nameInput" class="form-control mb-2" placeholder="Tên của bạn">
+  <textarea class="form-control mb-2" placeholder="Nội dung"></textarea>
+  <button onclick="sendMsg()" class="btn btn-main">Gửi</button>
+</div>
+```
+
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Phước Dev
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
