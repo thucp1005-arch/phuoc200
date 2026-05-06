@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <title>Phạm Trường Phước - IT Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <style>
+    body { font-family: 'Roboto', sans-serif; background-color: #f0f2f5; color: #333; }
+    .navbar { margin-bottom: 30px; border-radius: 0; background-color: #004a99; border: none; transition: all 0.3s; }
+    .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a { color: #fff; font-weight: 500; }
+    .navbar-inverse .navbar-nav>.active>a { background-color: #003366 !important; }
+    
+    .well { background-color: #ffffff; border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; }
+    .well:hover { transform: translateY(-2px); }
+    
+    .img-avatar { border: 3px solid #004a99; padding: 2px; transition: rotate 0.5s; }
+    .img-avatar:hover { transform: rotate(5deg); }
+    
+    .btn-custom { background-color: #004a99; color: white; border-radius: 20px; padding: 10px 25px; border: none; font-weight: bold; }
+    .btn-custom:hover { background-color: #003366; color: #eee; }
+    
+    #resultArea { display: none; margin-top: 20px; border-left: 5px solid #5cb85c; background: #f9fff9; }
+    footer { background-color: #222; color: #aaa; padding: 40px 0; margin-top: 60px; border-top: 4px solid #004a99; }
+    .form-control { border-radius: 8px; border: 1px solid #ddd; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Phước Portfolio</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Trang chủ</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#contactModal">Liên hệ</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-user"></span> Tài khoản</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container" style="margin-top: 80px;">    
+  <div class="row">
+    <!-- Cột trái: Profile -->
+    <div class="col-sm-3">
+      <div class="well text-center">
+        <h4 style="color: #004a99;"><strong>Phạm Trường Phước</strong></h4>
+        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&h=150&fit=crop" class="img-circle img-avatar" height="100" width="100" alt="Avatar">
+        <p style="margin-top: 15px;">🚀 <strong>Sinh viên CNTT</strong><br><small>Đại học Trà Vinh</small></p>
+      </div>
+      
+      <div id="resultArea" class="well">
+        <h4 style="color: #5cb85c;"><span class="glyphicon glyphicon-ok-circle"></span> Thông báo mới:</h4>
+        <div id="displayData" style="font-size: 0.9em;"></div>
+      </div>
+    </div>
+
+    <!-- Cột giữa: Bio & Form -->
+    <div class="col-sm-6">
+      <div class="panel panel-default" style="border-radius: 12px; overflow: hidden;">
+        <div class="panel-heading" style="background: #004a99; color: white; border: none;">
+            <h3 class="panel-title">Giới thiệu</h3>
+        </div>
+        <div class="panel-body">
+          <p>Chào bạn! Mình là một lập trình viên tương lai đam mê xây dựng những ứng dụng web hữu ích. Đây là không gian mình thử nghiệm các tính năng tương tác với người dùng.</p>
+        </div>
+      </div>
+
+      <div class="well">
+        <h4><span class="glyphicon glyphicon-envelope"></span> Gửi tin nhắn cho mình</h4>
+        <form id="quickContactForm">
+          <div class="form-group">
+            <input type="text" class="form-control" id="qName" required placeholder="Họ và tên">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="qEmail" required placeholder="Email liên hệ">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" id="qMsg" rows="4" required minlength="10" placeholder="Bạn đang nghĩ gì? (ít nhất 10 ký tự)"></textarea>
+          </div>
+          <button type="submit" class="btn btn-custom btn-block">Gửi thông tin</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Cột phải: Widgets -->
+    <div class="col-sm-3">
+      <div class="thumbnail" style="border-radius: 12px;">
+        <img src="https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?w=400&h=300&fit=crop" alt="Event" style="border-radius: 12px 12px 0 0;">
+        <div class="caption text-center">
+          <h5 style="font-weight: bold;">Sự kiện sắp tới</h5>
+          <p class="small text-muted">Web Dev Workshop 2026</p>
+          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#contactModal">Tham gia</button>
+        </div>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<!-- MODAL TÀI KHOẢN -->
+<div id="loginModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content" style="border-radius: 15px;">
+      <div class="modal-header" style="background:#004a99; color:white; border-radius: 15px 15px 0 0;">
+        <button type="button" class="close" data-dismiss="modal" style="color: white; opacity: 1;">&times;</button>
+        <h4 class="modal-title text-center">Thành viên</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-pills nav-justified">
+          <li class="active"><a data-toggle="tab" href="#loginTab">Đăng nhập</a></li>
+          <li><a data-toggle="tab" href="#registerTab">Đăng ký</a></li>
+        </ul>
+        <div class="tab-content" style="padding-top:20px;">
+          <div id="loginTab" class="tab-pane fade in active">
+            <form>
+              <div class="form-group"><input type="text" class="form-control" placeholder="Tên đăng nhập" required></div>
+              <div class="form-group"><input type="password" class="form-control" placeholder="Mật khẩu" required></div>
+              <button class="btn btn-success btn-block" style="border-radius: 20px;">Đăng nhập</button>
+            </form>
+          </div>
+          <div id="registerTab" class="tab-pane fade">
+            <form id="regForm">
+              <div class="form-group"><input type="text" class="form-control" id="regUser" placeholder="Tài khoản mới" required></div>
+              <div class="form-group"><input type="email" class="form-control" id="regEmail" placeholder="Email" required></div>
+              <div class="form-group"><input type="password" class="form-control" placeholder="Mật khẩu (6+ ký tự)" required minlength="6"></div>
+              <button type="submit" class="btn btn-primary btn-block" style="border-radius: 20px;">Hoàn tất đăng ký</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL LIÊN HỆ -->
+<div id="contactModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content" style="border-radius: 15px;">
+      <div class="modal-header" style="background:#333; color:white; border-radius: 15px 15px 0 0;">
+        <button type="button" class="close" data-dismiss="modal" style="color: white; opacity: 1;">&times;</button>
+        <h4 class="modal-title">Thông tin liên hệ</h4>
+      </div>
+      <div class="modal-body">
+        <div class="list-group">
+          <div class="list-group-item"><span class="glyphicon glyphicon-envelope"></span> <strong>Email:</strong> phuoc.it.tvu@gmail.com</div>
+          <div class="list-group-item"><span class="glyphicon glyphicon-phone"></span> <strong>SĐT:</strong> 0123 456 789</div>
+          <div class="list-group-item"><span class="glyphicon glyphicon-map-marker"></span> <strong>Vị trí:</strong> Trà Vinh, Việt Nam</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center">
+  <div class="container">
+    <p><strong>© 2026 Phạm Trường Phước</strong></p>
+    <p>Sản phẩm demo cho môn học Phát triển Web - TVU</p>
+  </div>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Xử lý Form Liên hệ nhanh
+  $('#quickContactForm').on('submit', function(e){
+    e.preventDefault();
+    const name = $('#qName').val();
+    const email = $('#qEmail').val();
+    const msg = $('#qMsg').val();
+    
+    $('#displayData').hide().html(`
+      <p><strong>Khách:</strong> ${name}</p>
+      <p><strong>Mail:</strong> ${email}</p>
+      <p><strong>Lời nhắn:</strong> ${msg.substring(0, 50)}...</p>
+      <hr style="margin: 10px 0;">
+      <p class="text-success small"><em>Hệ thống đã ghi nhận!</em></p>
+    `).fadeIn();
+    
+    $('#resultArea').slideDown();
+    this.reset();
+  });
+
+  // Xử lý Form Đăng ký
+  $('#regForm').on('submit', function(e){
+    e.preventDefault();
+    const user = $('#regUser').val();
+    
+    alert("Chào mừng " + user + " gia nhập cộng đồng!");
+    
+    $('#displayData').hide().html(`
+      <p><strong>Thành viên:</strong> ${user}</p>
+      <p><strong>Trạng thái:</strong> Đã kích hoạt ✅</p>
+    `).fadeIn();
+    
+    $('#resultArea').slideDown();
+    $('#loginModal').modal('hide');
+  });
+});
+</script>
+
+</body>
+</html>

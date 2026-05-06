@@ -1,0 +1,31 @@
+function showPage(pageId) {
+document.querySelectorAll('.page').forEach(p => {
+p.classList.add('d-none');
+});
+document.getElementById(pageId).classList.remove('d-none');
+}
+
+function sendMsg() {
+let name = document.getElementById("nameInput").value;
+
+if(name){
+alert("Cảm ơn " + name + " đã gửi tin!");
+localStorage.setItem("user", name);
+
+```
+document.getElementById("userName").innerText = name;
+document.getElementById("profileName").innerText = name;
+```
+
+} else {
+alert("Vui lòng nhập tên!");
+}
+}
+
+window.onload = function(){
+let user = localStorage.getItem("user");
+if(user){
+document.getElementById("userName").innerText = user;
+document.getElementById("profileName").innerText = user;
+}
+}
